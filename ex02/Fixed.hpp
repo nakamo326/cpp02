@@ -15,11 +15,24 @@ class Fixed {
   Fixed(float num);
   Fixed(const Fixed &a);
   ~Fixed();
-  Fixed &operator=(const Fixed &a);
   int getRawBits(void) const;
   void setRawBits(int const raw);
   float toFloat(void) const;
   int toInt(void) const;
+
+  // Assignation operator overload
+  Fixed &operator=(const Fixed &a);
+
+  // comparison operator overload
+  Fixed &operator>(const Fixed &a);
+  Fixed &operator<(const Fixed &a);
+  Fixed &operator>=(const Fixed &a);
+  Fixed &operator<=(const Fixed &a);
+  Fixed &operator==(const Fixed &a);
+  Fixed &operator!=(const Fixed &a);
+
+  // arithmetic operator overload
+  Fixed &operator+(const Fixed &a);
 };
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &value);
