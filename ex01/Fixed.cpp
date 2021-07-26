@@ -48,8 +48,6 @@ int Fixed::toInt(void) const {
 }
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &f) {
-  float val = f.toFloat();
-  stream << val;
-
+  stream << f.toFloat();
   return stream;
 }
