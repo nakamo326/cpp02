@@ -24,15 +24,24 @@ class Fixed {
   Fixed &operator=(const Fixed &a);
 
   // comparison operator overload
-  Fixed &operator>(const Fixed &a);
-  Fixed &operator<(const Fixed &a);
-  Fixed &operator>=(const Fixed &a);
-  Fixed &operator<=(const Fixed &a);
-  Fixed &operator==(const Fixed &a);
-  Fixed &operator!=(const Fixed &a);
+  bool operator>(const Fixed &a) const;
+  bool operator<(const Fixed &a) const;
+  bool operator>=(const Fixed &a) const;
+  bool operator<=(const Fixed &a) const;
+  bool operator==(const Fixed &a) const;
+  bool operator!=(const Fixed &a) const;
 
   // arithmetic operator overload
-  Fixed &operator+(const Fixed &a);
+  Fixed operator+(const Fixed &a) const;
+  Fixed operator-(const Fixed &a) const;
+  Fixed operator*(const Fixed &a) const;
+  Fixed operator/(const Fixed &a) const;
+
+  // increment, decrement operator overload
+  Fixed &operator++();
+  Fixed &operator++(int);
+  Fixed &operator--();
+  Fixed &operator--(int);
 };
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &value);

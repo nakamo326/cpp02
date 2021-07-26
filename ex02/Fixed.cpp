@@ -49,3 +49,52 @@ std::ostream &operator<<(std::ostream &stream, const Fixed &f) {
   stream << f.toFloat();
   return stream;
 }
+
+// comparison operator overload
+bool Fixed::operator>(const Fixed &a) const {
+  return m_num > a.m_num;
+}
+
+bool Fixed::operator<(const Fixed &a) const {
+  return m_num < a.m_num;
+}
+
+bool Fixed::operator>=(const Fixed &a) const {
+  return m_num >= a.m_num;
+}
+
+bool Fixed::operator<=(const Fixed &a) const {
+  return m_num <= a.m_num;
+}
+
+bool Fixed::operator==(const Fixed &a) const {
+  return m_num == a.m_num;
+}
+bool Fixed::operator!=(const Fixed &a) const {
+  return m_num != a.m_num;
+}
+
+// arithmetic operator overload
+Fixed Fixed::operator+(const Fixed &a) const {
+  Fixed tmp;
+  tmp.m_num = m_num + a.m_num;
+  return tmp;
+}
+
+Fixed Fixed::operator-(const Fixed &a) const {
+  Fixed tmp;
+  tmp.m_num = m_num - a.m_num;
+  return tmp;
+}
+
+Fixed Fixed::operator*(const Fixed &a) const {
+  Fixed tmp;
+  tmp.m_num = (m_num * a.m_num) >> m_bp;
+  return tmp;
+}
+
+Fixed Fixed::operator/(const Fixed &a) const {
+  Fixed tmp;
+  tmp.m_num = (m_num << m_bp) * a.m_num;
+  return tmp;
+}
