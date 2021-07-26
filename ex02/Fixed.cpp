@@ -98,3 +98,25 @@ Fixed Fixed::operator/(const Fixed &a) const {
   tmp.m_num = (m_num << m_bp) * a.m_num;
   return tmp;
 }
+
+Fixed &Fixed::operator++() {
+  ++m_num;
+  return *this;
+}
+
+const Fixed &Fixed::operator++(int) {
+  const Fixed tmp = *this;
+  ++(*this);
+  return tmp;
+}
+
+Fixed &Fixed::operator--() {
+  --m_num;
+  return *this;
+}
+
+const Fixed &Fixed::operator--(int) {
+  const Fixed tmp = *this;
+  --(*this);
+  return tmp;
+}
