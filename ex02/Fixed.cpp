@@ -2,7 +2,7 @@
 
 Fixed::Fixed() {
   m_num = 0;
-  std::cout << "Default constructor called" << std::endl;
+  // std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int num) {
@@ -15,21 +15,21 @@ Fixed::Fixed(float num) {
 
 Fixed::Fixed(const Fixed &other) {
   m_num = other.m_num;
-  std::cout << "Copy constructor called" << std::endl;
+  // std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed() {
-  std::cout << "Destructor called" << std::endl;
+  // std::cout << "Destructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &other) {
   m_num = other.m_num;
-  std::cout << "Assignation operator called" << std::endl;
+  // std::cout << "Assignation operator called" << std::endl;
   return *this;
 }
 
 int Fixed::getRawBits(void) const {
-  std::cout << "getRawBits member function called" << std::endl;
+  // std::cout << "getRawBits member function called" << std::endl;
   return m_num;
 }
 
@@ -119,4 +119,32 @@ Fixed Fixed::operator--(int) {
   Fixed tmp = *this;
   --(*this);
   return tmp;
+}
+
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+  if (a.m_num <= b.m_num)
+    return a;
+  else
+    return b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+  if (a.m_num <= b.m_num)
+    return a;
+  else
+    return b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+  if (a.m_num >= b.m_num)
+    return a;
+  else
+    return b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+  if (a.m_num >= b.m_num)
+    return a;
+  else
+    return b;
 }
