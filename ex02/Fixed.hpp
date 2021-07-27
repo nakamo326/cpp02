@@ -39,9 +39,9 @@ class Fixed {
 
   // increment, decrement operator overload
   Fixed &operator++();
-  const Fixed &operator++(int);
+  Fixed operator++(int);
   Fixed &operator--();
-  const Fixed &operator--(int);
+  Fixed operator--(int);
 };
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &value);

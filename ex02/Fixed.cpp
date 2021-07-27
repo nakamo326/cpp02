@@ -95,28 +95,28 @@ Fixed Fixed::operator*(const Fixed &a) const {
 
 Fixed Fixed::operator/(const Fixed &a) const {
   Fixed tmp;
-  tmp.m_num = (m_num << m_bp) * a.m_num;
+  tmp.m_num = (m_num << m_bp) / a.m_num;
   return tmp;
 }
 
 Fixed &Fixed::operator++() {
-  ++m_num;
+  m_num++;
   return *this;
 }
 
-const Fixed &Fixed::operator++(int) {
-  const Fixed tmp = *this;
+Fixed Fixed::operator++(int) {
+  Fixed tmp = *this;
   ++(*this);
   return tmp;
 }
 
 Fixed &Fixed::operator--() {
-  --m_num;
+  m_num--;
   return *this;
 }
 
-const Fixed &Fixed::operator--(int) {
-  const Fixed tmp = *this;
+Fixed Fixed::operator--(int) {
+  Fixed tmp = *this;
   --(*this);
   return tmp;
 }
